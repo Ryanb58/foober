@@ -4,10 +4,25 @@ from django_countries.fields import CountryField
 
 
 class FoodItem(models.Model):
+    TYPE_DAIRY = 0
+    TYPE_FRUIT = 1
+    TYPE_GRAIN = 2
+    TYPE_PROTEIN = 3
+    TYPE_VEGETABLES = 4
+
+    TYPE_CHOICES = {
+        TYPE_DAIRY: 'Dairy',
+        TYPE_FRUIT: 'Fruit',
+        TYPE_GRAIN: 'Grain (cereal) foods',
+        TYPE_PROTEIN: 'Lean meats, poultry, fish, eggs, tofu, nuts and seeds',
+        TYPE_VEGETABLES: 'Vegetables, legumes and beans',
+    }
+
     name = models.CharField(max_length=255)
     contact_name = models.CharField(max_length=255)
     location = models.ForeignKey('Location', on_delete=models.CASCADE)
     available_timestamp = models.DateTimeField()
+    type = models.SmallIntegerField(null=True, choices=TYPE_CHOICES.items())
 
     def __str__(self):
         return self.name
