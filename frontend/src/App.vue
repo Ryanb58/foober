@@ -13,6 +13,7 @@ import Login from "./components/Login.vue";
 import Navbar from "./components/Navbar.vue";
 import Index from "./components/Index.vue";
 import FoodList from "./components/FoodList.vue";
+import FoodAddEdit from "./components/FoodList.vue";
 
 import auth from './utils/auth.js'
 
@@ -31,6 +32,7 @@ export default {
     }
   },
   components: {
+    FoodAddEdit,
     FoodList,
     Index,
     Login,
