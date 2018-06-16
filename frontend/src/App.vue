@@ -4,6 +4,7 @@
     <section class="section">
       <router-view></router-view>
     </section>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -11,9 +12,11 @@
 <script>
 import Login from "./components/Login.vue";
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 import Index from "./components/Index.vue";
 import FoodList from "./components/FoodList.vue";
 import FoodAddEdit from "./components/FoodList.vue";
+import Map from "./components/Map.vue";
 
 import auth from './utils/auth.js'
 
@@ -37,6 +40,8 @@ export default {
     Index,
     Login,
     Navbar,
+    Footer,
+    Map,
   }
 };
 </script>
