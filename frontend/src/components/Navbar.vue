@@ -13,11 +13,17 @@
         <router-link class="navbar-item" to="/food" active-class="active">
           Food
         </router-link>
+        <router-link class="navbar-item" to="/resources" active-class="active">
+          Resources
+        </router-link>
+        <router-link class="navbar-item" to="/map" active-class="active">
+          Map
+        </router-link>
       </div>
       <div class="navbar-end">
         <div v-if="loggedIn" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/profile">
-            Ryanb58
+            Meigor
           </a>
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="/settings">

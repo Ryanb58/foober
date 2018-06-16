@@ -1,48 +1,83 @@
 <template>
-  <section>
-    <div>
-      <div class="control">
-        <router-link tag='button' class='button is-primary' to='/food/addedit'>Add Food</router-link>
+  <section class="container">
+    <div class="columns">
+      <div class="column is-12">
+        <section class="info-tiles">
+          <div class="tile is-ancestor has-text-centered">
+              <div class="tile is-parent">
+                  <article class="tile is-child box">
+                      <p class="title">42</p>
+                      <p class="subtitle">Claims This Week</p>
+                  </article>
+              </div>
+              <div class="tile is-parent">
+                  <article class="tile is-child box">
+                      <p class="title">62</p>
+                      <p class="subtitle">Food Offered</p>
+                  </article>
+              </div>
+              <div class="tile is-parent">
+                  <article class="tile is-child box">
+                      <p class="title">20</p>
+                      <p class="subtitle">Non Claimed Count</p>
+                  </article>
+              </div>
+          </div>
+        </section>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-12">
+        <section>
+          <div>
+            <div class="control">
+              <router-link tag='button' class='button is-primary' to='/food/addedit'>Add Food</router-link>
+            </div>
+          </div>
+          <b-table
+            :data="data"
+            :loading="loading"
+
+            paginated
+            backend-pagination
+            :total="total"
+            :per-page="perPage"
+            @page-change="onPageChange"
+
+            backend-sorting
+            :default-sort-direction="defaultSortOrder"
+            :default-sort="[sortField, sortOrder]"
+            @sort="onSort">
+
+            <template slot-scope="props">
+              <b-table-column field="name" label="Food" width="500">
+                {{ props.row.name | truncate(120) }}
+              </b-table-column>
+
+              <b-table-column field="contact_name" label="Contact" numeric sortable>
+                {{ props.row.contact_name }}
+              </b-table-column>
+
+              <b-table-column field="available_timestamp" label="Available" sortable>
+                {{ props.row.available_timestamp ? new Date(props.row.available_timestamp).toLocaleDateString() : '' }}
+              </b-table-column>
+
+              <b-table-column label="">
+                <div class="control">
+                  <router-link class="button is-medium" :to="{ name: 'food-addedit-id', params: { id: props.row.id }}">
+                    Edit
+                  </router-link>
+                  <router-link class="button is-light" :to="{ name: 'food-addedit-id', params: { id: props.row.id }}">
+                    Remove
+                  </router-link>
+                </div>
+              </b-table-column>
+
+            </template>
+          </b-table>
+        </section>
       </div>
     </div>
-    <b-table
-      :data="data"
-      :loading="loading"
-
-      paginated
-      backend-pagination
-      :total="total"
-      :per-page="perPage"
-      @page-change="onPageChange"
-
-      backend-sorting
-      :default-sort-direction="defaultSortOrder"
-      :default-sort="[sortField, sortOrder]"
-      @sort="onSort">
-
-      <template slot-scope="props">
-        <b-table-column field="name" label="Food" width="500">
-          {{ props.row.name | truncate(120) }}
-        </b-table-column>
-
-        <b-table-column field="contact_name" label="Contact" numeric sortable>
-          {{ props.row.contact_name }}
-        </b-table-column>
-
-        <b-table-column field="available_timestamp" label="Available" sortable>
-          {{ props.row.available_timestamp ? new Date(props.row.available_timestamp).toLocaleDateString() : '' }}
-        </b-table-column>
-
-        <b-table-column label="">
-          <div class="control">
-            <router-link class="button is-light" :to="{ name: 'food-addedit-id', params: { id: props.row.id }}">
-              Edit
-            </router-link>
-          </div>
-        </b-table-column>
-
-      </template>
-    </b-table>
   </section>
 </template>
 
@@ -120,7 +155,7 @@ export default {
       } else if (number >= 8) {
         return "is-success";
       }
-    },
+    }
   },
   filters: {
     /**

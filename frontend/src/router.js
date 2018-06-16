@@ -5,6 +5,8 @@ import Index from './components/Index.vue';
 import Login from '@/components/Login.vue';
 import FoodList from '@/components/FoodList.vue';
 import FoodAddEdit from '@/components/FoodAddEdit.vue';
+import Resources from '@/components/Resources.vue';
+import Map from '@/components/Map.vue';
 
 import auth from '@/utils/auth';
 
@@ -16,6 +18,18 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index,
+      // beforeEnter: requireAuth,
+    },
+    {
+      path: '/resources',
+      name: 'resources',
+      component: Resources,
+      // beforeEnter: requireAuth,
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: Map,
       // beforeEnter: requireAuth,
     },
     {
