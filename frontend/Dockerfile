@@ -9,8 +9,6 @@ ADD ./package.json /app/
 
 WORKDIR /app
 
-RUN yarn global add @vue/cli
-
-RUN yarn install
+RUN npm install
 
 ENTRYPOINT [ "/wait-for.sh", "api:8000", "--" ]

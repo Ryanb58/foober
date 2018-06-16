@@ -1,25 +1,42 @@
 <template>
   <div id="app">
-
+    <Navbar></Navbar>
     <section class="section">
       <router-view></router-view>
     </section>
-    <div class="container">
-      <div class="notification">
-        This container is <strong>centered</strong> on desktop.
-      </div>
-    </div>
   </div>
 </template>
+
+
 <script>
-import Index from './components/Index.vue'
+import Login from "./components/Login.vue";
+import Navbar from "./components/Navbar.vue";
+import Index from "./components/Index.vue";
+import FoodList from "./components/FoodList.vue";
+
+import auth from './utils/auth.js'
 
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      activeIndex: '1',
+      activeIndex2: '1',
+      loggedIn: auth.loggedIn(),
+    };
+  },
+  created () {
+    auth.onChange = loggedIn => {
+      this.loggedIn = loggedIn
+    }
+  },
   components: {
-    Index
+    FoodList,
+    Index,
+    Login,
+    Navbar,
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -27,13 +44,13 @@ export default {
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-$primary: #cc580a;
+$primary: #EC7964;
 $primary-invert: findColorInvert($primary);
-$secondary: #d48d66;
+$secondary: #F0A480;
 $secondary-invert: findColorInvert($primary);
 $dark: #1b1e1c;
 $dark-invert: findColorInvert($primary);
-$medium: #424743;
+$medium: #6DC1AF;
 $medium-invert: findColorInvert($primary);
 $light: #9ea39f;
 $light-invert: findColorInvert($primary);
@@ -62,4 +79,3 @@ $link-focus-border: $primary;
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 </style>
-

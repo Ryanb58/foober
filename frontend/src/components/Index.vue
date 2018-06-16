@@ -1,16 +1,15 @@
 <template>
-    <div>
-        I am the index page.
-    </div>
+  <div class="index">
+    Index View
+  </div>
 </template>
-
 
 <script>
 export default {
-  name: "Index",
-  props: {
-    msg: String
-  }
+  name: "Index"
+  // props: {
+  //   msg: String
+  // }
 };
 </script>
 
