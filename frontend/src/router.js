@@ -1,13 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './components/Index.vue';
-// import AcquisitionList from './components/AcquisitionList.vue';
-// import Dashboard from './components/Dashboard.vue';
-// import DispositionAddEdit from './components/DispositionAddEdit.vue';
 
-// import Login from '@/components/Login.vue';
+import Login from '@/components/Login.vue';
+import FoodList from '@/components/FoodList.vue';
 
-// import auth from '@/utils/auth';
+import auth from '@/utils/auth';
 
 Vue.use(Router);
 
@@ -17,14 +15,14 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index,
-    //   beforeEnter: requireAuth,
-    }
-    // {
-    //   path: '/acquisitions',
-    //   name: 'acquisition-list',
-    //   component: AcquisitionList,
-    //   beforeEnter: requireAuth,
-    // },
+      // beforeEnter: requireAuth,
+    },
+    {
+      path: '/food',
+      name: 'food-list',
+      component: FoodList,
+      // beforeEnter: requireAuth,
+    },
     // {
     //   path: '/acquisitions/addedit/',
     //   name: 'acquisitions-addedit',

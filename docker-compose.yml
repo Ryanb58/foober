@@ -47,7 +47,7 @@ services:
     image: ui
     build:
       context: ./frontend
-    command: yarn serve
+    command: npm run serve
     # command: /bin/sh
     depends_on:
       - api
