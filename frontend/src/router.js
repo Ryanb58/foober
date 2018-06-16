@@ -4,6 +4,7 @@ import Index from './components/Index.vue';
 
 import Login from '@/components/Login.vue';
 import FoodList from '@/components/FoodList.vue';
+import FoodAddEdit from '@/components/FoodAddEdit.vue';
 
 import auth from '@/utils/auth';
 
@@ -23,18 +24,18 @@ export default new Router({
       component: FoodList,
       // beforeEnter: requireAuth,
     },
-    // {
-    //   path: '/acquisitions/addedit/',
-    //   name: 'acquisitions-addedit',
-    //   component: AcquisitionAddEdit,
-    //   beforeEnter: requireAuth,
-    // },
-    // {
-    //   path: '/acquisitions/addedit/:id',
-    //   name: 'acquisitions-addedit-id',
-    //   component: AcquisitionAddEdit,
-    //   beforeEnter: requireAuth,
-    // },
+    {
+      path: '/food/addedit/',
+      name: 'food-addedit',
+      component: FoodAddEdit,
+      // beforeEnter: requireAuth,
+    },
+    {
+      path: '/food/addedit/:id',
+      name: 'food-addedit-id',
+      component: FoodAddEdit,
+      // beforeEnter: requireAuth,
+    },
     // {
     //   path: '/dispositions/addedit/:id',
     //   name: 'dispositions-addedit-id',

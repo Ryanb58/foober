@@ -104,7 +104,6 @@ export default {
             * Handle sort event
             */
     onSort(field, order) {
-      debugger;
       this.sortField = field;
       this.sortOrder = order;
       this.loadAsyncData();
