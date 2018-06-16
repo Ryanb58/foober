@@ -6,15 +6,16 @@ from django_countries.fields import CountryField
 class FoodItem(models.Model):
     name = models.CharField(max_length=255)
     contact_name = models.CharField(max_length=255)
-    location = models.ForeignKey('Location')
+    location = models.ForeignKey('Location', on_delete=models.CASCADE)
     available_timestamp = models.DateTimeField()
 
     def __str__(self):
-        return self.address
+        return self.name
 
 
 class FoodClaim(models.Model):
-    food_item = models.ForeignKey('FoodItem', null=False)
+    food_item = models.ForeignKey(
+        'FoodItem', on_delete=models.CASCADE, null=False)
     device_uuid = models.UUIDField()
     claim_timestamp = models.DateTimeField(null=False)
 
@@ -23,7 +24,8 @@ class FoodClaim(models.Model):
 
 
 class Location(models.Model):
-    vendor = models.ForeignKey('vendor.Vendor', null=False)
+    vendor = models.ForeignKey(
+        'vendor.Vendor', on_delete=models.CASCADE, null=False)
     phone_number = models.CharField(max_length=12)
     phone_extension = models.CharField(max_length=8)
     address = models.CharField(max_length=512)

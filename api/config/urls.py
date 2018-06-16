@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
+from food.api.urls import router as food_router
+from vendor.api.urls import router as vendor_router
+
+router = routers.DefaultRouter()  # pylint: disable=invalid-name
+router.registry.extend(food_router.registry)
+router.registry.extend(vendor_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(
         'api-auth/',
         include('rest_framework.urls', namespace='rest_framework')),
+    path('api/', include(router.urls)),
 ]

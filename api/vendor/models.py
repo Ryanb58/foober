@@ -9,3 +9,6 @@ class Vendor(models.Model):
     # logo = models.ImageField(
     #     upload_to='myphoto/%Y/%m/%d/', null=True, max_length=255)
     logo_url = models.URLField(max_length=1028)
+
+    def __str__(self):
+        return self.name
