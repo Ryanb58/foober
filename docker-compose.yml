@@ -2,22 +2,22 @@ version: "3"
 
 services:
 
-  # haproxy:
-  #   image: haproxy:1.8.9-alpine
-  #   command: /bin/sh -c "/usr/bin/start.sh"
-  #   restart: unless-stopped
-  #   container_name: haproxy
-  #   depends_on:
-  #     - api
-  #     # - frontend
-  #   volumes:
-  #     - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-  #     - ./haproxy/start.sh:/usr/bin/start.sh:ro
-  #     - ./haproxy/secrets/:/secrets
-  #   ports:
-  #     - "80:80" # HTTP
-  #     - "443:443" # HTTPS
-  #     - "9000:9000" # Stats endpoint for backend management.
+  haproxy:
+    image: haproxy:1.8.9-alpine
+    command: /bin/sh -c "/usr/bin/start.sh"
+    restart: unless-stopped
+    container_name: haproxy
+    depends_on:
+      - api
+      # - frontend
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./haproxy/start.sh:/usr/bin/start.sh:ro
+      - ./haproxy/secrets/:/secrets
+    ports:
+      - "80:80" # HTTP
+      - "443:443" # HTTPS
+      - "9000:9000" # Stats endpoint for backend management.
 
   db:
     image: postgres:10.4-alpine
@@ -40,5 +40,5 @@ services:
       - db
     volumes:
       - "./api:/app"
-    ports:
-      - "8000:8000" # HTTP
+    # ports:
+    #   - "8000:8000" # HTTP
