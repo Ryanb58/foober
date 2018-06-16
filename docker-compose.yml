@@ -42,3 +42,19 @@ services:
       - "./api:/app"
     # ports:
     #   - "8000:8000" # HTTP
+
+  ui:
+    image: ui
+    build:
+      context: ./frontend
+    command: yarn serve
+    # command: /bin/sh
+    depends_on:
+      - api
+    # environment:
+      # - HOST=0.0.0.0
+    volumes:
+      # This hides the `node_modules` after mounting the host directory
+      - ./frontend:/app
+      # This brings back the `node_modules` from the image
+      - /app/node_modules
