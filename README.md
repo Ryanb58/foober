@@ -23,3 +23,6 @@ then go to http://localhost:8000 on your machine.
 ![Screen Shot](images/Foober1.png?raw=true "Screen Shot")
 
 ![Screen Shot](images/Foober2.png?raw=true "Screen Shot")
+
+
+Designed and Developed by Taylor Brazelton & Auri A. Rahimzadeh for the 2018 Indy Civic Hackathon.
