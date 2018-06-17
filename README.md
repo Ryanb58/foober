@@ -1,12 +1,14 @@
 # Foober
 
+Stigma-Free Food For Those In Need
+
 ## Description of Files:
 
-`api/` contains a django project.
+    `api/` contains a django project.
 
-`frontend/` contains a vue.js project.
+    `frontend/` contains a vue.js project.
 
-`docs/` contains the documentation recieved and created for this hackathon.
+    `docs/` contains the documentation received and created for this hackathon.
 
 ### Hashtag for Event:
 \#indycivichack
