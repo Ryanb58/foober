@@ -1,6 +1,12 @@
 Welcome to the docker/django hackathon template.
 
-`api/` contains a django project with a few libraries to aid in quick development.
+`api/` contains a django project.
+`frontend/` contains a vue.js project.
+`docs/` contains the documentation recieved and created for this hackathon.
+
+
+#### Hashtag for Event:
+\#indycivichack
 
 #### Build the app
 ```make build```
@@ -9,3 +15,11 @@ Welcome to the docker/django hackathon template.
 ```make run```
 
 then go to http://localhost:8000 on your machine.
+
+
+
+#### Screenshots:
+
+![Screen Shot](images/Foober1.png?raw=true "Screen Shot")
+
+![Screen Shot](images/Foober2.png?raw=true "Screen Shot")
