@@ -27,4 +27,8 @@ then go to http://localhost:8000 on your machine.
 
 ![Screen Shot](images/Foober2.png?raw=true "Screen Shot")
 
+## Press:
+
+https://www.wthr.com/article/hackathon-aims-for-high-tech-solution-to-hunger-in-indianapolis
+
 Designed and Developed by Taylor Brazelton & Auri A. Rahimzadeh for the 2018 Indy Civic Hackathon.
